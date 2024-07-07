@@ -1,0 +1,64 @@
+{
+    "product": "book",
+    "description": "venture capital & the financial of innovation",
+    "category": {
+        "$oid": "630f486d18040dbb62864ff0"
+    },
+    "subCategory": {
+        "$oid": "630f486f18040dbb62865025"
+    },
+    "price": 1000,
+    "negotiable": true,
+    "seller": {
+        "$oid": "65dacefa5b3913a3537ba2de"
+    },
+    "productImage": [
+        {
+            "image": "https://dosro-dev-files.s3.ap-south-1.amazonaws.com/product/65dacefa5b3913a3537ba2de/productImage_1709556947873_475321.webp",
+            "_id": {
+                "$oid": "65e5c4d45b3913a3537bb5ad"
+            }
+        },
+        {
+            "image": "https://dosro-dev-files.s3.ap-south-1.amazonaws.com/product/65dacefa5b3913a3537ba2de/productImage_1709556947886_371381.webp",
+            "_id": {
+                "$oid": "65e5c4d45b3913a3537bb5ae"
+            }
+        },
+        {
+            "image": "https://dosro-dev-files.s3.ap-south-1.amazonaws.com/product/65dacefa5b3913a3537ba2de/productImage_1709556947992_799457.webp",
+            "_id": {
+                "$oid": "65e5c4d45b3913a3537bb5af"
+            }
+        }
+    ],
+    "thumbnail": "https://dosro-dev-files.s3.ap-south-1.amazonaws.com/product/65dacefa5b3913a3537ba2de/productImage_1709556947873_475321.webp",
+    "views": 20,
+    "status": "Inactive",
+    "tags": [
+        "books,",
+        "education"
+    ],
+    "comments": [
+        {
+            "comment": "k sarho mahango ho yar",
+            "commenter": {
+                "$oid": "65dacefa5b3913a3537ba2de"
+            },
+            "reply": [],
+            "_id": {
+                "$oid": "65e5c5605b3913a3537bb5c2"
+            },
+            "date": {
+                "$date": "2024-03-04T12:58:08.110Z"
+            }
+        }
+    ],
+    "createdAt": {
+        "$date": "2024-03-04T12:55:48.721Z"
+    },
+    "updatedAt": {
+        "$date": "2024-05-19T11:29:01.146Z"
+    },
+    "__v": 0
+}

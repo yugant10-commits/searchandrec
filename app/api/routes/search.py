@@ -5,11 +5,13 @@ from pymongo import MongoClient, ASCENDING
 from typing import Any
 from bson import ObjectId
 
+from config import settings
 from src.ranking_algorithm import HybridSearch
 # from src.generate_embeddings import CreateEmbeddings
 
 
 router = APIRouter()
+
 
 def convert_objectid_to_str(data: Any) -> Any:
     if isinstance(data, dict):
@@ -21,24 +23,25 @@ def convert_objectid_to_str(data: Any) -> Any:
     else:
         return data
 
-client = MongoClient('mongodb://localhost:27017/')
-db = client['dosro']
-collection = db['second_hand_products']
-model = SentenceTransformer('all-MiniLM-L6-v2')
+
+client = MongoClient(settings.MONGO_DB_URL)
+db = client[settings.MONGO_DB]
+collection = db[settings.MONGO_COLLECTION]
+model = SentenceTransformer(settings.SENTENCE_TRANSFORMER_MODEL)
 
 
 @router.get("/api/v1/search", tags=["search"], status_code=HTTPStatus.OK)
 async def hybrid_search(
-    query:str
+    query: str
 ):
     """Get search results using hyrbid search"""
     obj = HybridSearch(
-        collection=collection, 
-        query=query, 
-        alpha=0.5, 
+        collection=collection,
+        query=query,
+        alpha=0.5,
         k=10,
-        model=model 
-        )
+        model=model
+    )
     text_results = obj.mongo_text_search()
     vector_results = obj.vector_search()
     combined_results = obj.get_combined_result(text_results, vector_results)
